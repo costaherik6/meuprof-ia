@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>meuprof.ia — Seu professor de idiomas no WhatsApp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#05080f;color:#e8edf5;overflow-x:hidden}
+.btn-cta{background:linear-gradient(135deg,#1a6fd4,#1458a8);color:#fff;border:none;padding:18px 40px;border-radius:10px;font-size:17px;font-weight:500;cursor:pointer;display:inline-block;text-decoration:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 24px #1a6fd455}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px #1a6fd466}
+.btn-ghost{background:transparent;color:#85B7EB;border:1px solid #378ADD44;padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.badge{background:#0c447c;color:#85B7EB;font-size:12px;padding:5px 14px;border-radius:20px;display:inline-block;letter-spacing:0.5px}
+.badge-red{background:#3d1010;color:#f09595;font-size:12px;padding:5px 14px;border-radius:20px;display:inline-block}
+.sec{padding:80px 24px;max-width:860px;margin:0 auto}
+.sec-sm{padding:60px 24px;max-width:860px;margin:0 auto}
+hr.div{border:none;border-top:0.5px solid #1a2535;margin:0}
+.card{background:#0d1626;border:0.5px solid #1e2e45;border-radius:14px;padding:28px}
+.label{font-size:12px;color:#378ADD;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.h1{font-size:44px;font-weight:500;line-height:1.15;color:#e8edf5}
+.h2{font-size:30px;font-weight:500;line-height:1.3;color:#c8d8e8}
+.h3{font-size:18px;font-weight:500;color:#c8d8e8}
+.sub{font-size:18px;color:#7a9ab8;line-height:1.7}
+.muted{font-size:14px;color:#3a5470}
+.blue{color:#378ADD}
+.check{color:#378ADD;font-size:18px;margin-right:8px}
+.pain-card{background:#0a0f1a;border:0.5px solid #2a1a1a;border-radius:12px;padding:20px;border-left:3px solid #a32d2d}
+.transform-card{background:#040d18;border:0.5px solid #1a2e1a;border-radius:12px;padding:20px;border-left:3px solid #1d9e75}
+.price-box{background:#0d1626;border:2px solid #378ADD;border-radius:18px;padding:40px;max-width:440px;margin:0 auto;text-align:center}
+.faq-item{border-bottom:0.5px solid #1a2535;padding:20px 0}
+.faq-q{font-size:15px;font-weight:500;color:#c8d8e8;margin-bottom:8px}
+.faq-a{font-size:14px;color:#5a7a99;line-height:1.7}
+.avatar{width:42px;height:42px;border-radius:50%;background:#0c447c;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#85B7EB;flex-shrink:0}
+.star{color:#ef9f27}
+.urgency-bar{background:#0a0f1a;border-bottom:0.5px solid #2a1a1a;border-top:2px solid #a32d2d;padding:14px 24px;text-align:center;position:sticky;top:0;z-index:100}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-num{width:36px;height:36px;border-radius:50%;background:#0c447c;color:#85B7EB;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;flex-shrink:0}
+.bonus-card{background:#05080f;border:0.5px solid #1e2e45;border-radius:12px;padding:20px;display:flex;gap:16px;align-items:flex-start}
+.bonus-icon{width:44px;height:44px;border-radius:10px;background:#0c447c22;border:0.5px solid #378ADD33;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#378ADD;font-size:20px}
+.strike{text-decoration:line-through;color:#3a5470;font-size:14px}
+.guarantee-box{background:#040d18;border:1px solid #1d9e7544;border-radius:14px;padding:32px;text-align:center;max-width:500px;margin:0 auto}
+.nav{background:#05080fee;border-bottom:0.5px solid #1a2535;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:40px;z-index:200;backdrop-filter:blur(8px)}
+@media(max-width:600px){
+  .h1{font-size:30px}
+  .h2{font-size:24px}
+  .grid3{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .nav{top:38px}
+}
+</style>
+</head>
+<body>
+<div style="background:#05080f;min-height:100vh">
+
+<!-- BARRA DE URGÊNCIA -->
+<div class="urgency-bar">
+  <span style="font-size:13px;color:#f09595">Oferta de lançamento ativa</span>
+  <span style="font-size:13px;color:#5a7a99;margin:0 8px">·</span>
+  <span style="font-size:13px;color:#c8d8e8">R$19,90/mês — preço sobe em breve</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="font-size:18px;font-weight:500;color:#378ADD">meuprof<span style="color:#3a5470">.ia</span></div>
+  <a href="SEU_LINK_CAKTO_AQUI" class="btn-cta" style="padding:10px 22px;font-size:14px">Quero meu professor</a>
+</nav>
+
+<!-- HERO -->
+<div class="sec" style="text-align:center;padding-top:100px;padding-bottom:60px">
+  <div class="badge" style="margin-bottom:20px">O professor que você sempre quis ter — agora no seu WhatsApp</div>
+  <h1 class="h1" style="margin-bottom:20px">Você não precisa de mais<br>um app de idiomas.<br><span class="blue">Você precisa de um professor.</span></h1>
+  <p class="sub" style="max-width:580px;margin:0 auto 40px">Duolingo te dá pontos. Cursos te dão vídeos. O meuprof.ia te dá uma conversa real — com um professor que te conhece, lembra dos seus erros e te ensina do jeito certo pra sua idade e seu objetivo.</p>
+  <a href="SEU_LINK_CAKTO_AQUI" class="btn-cta">Quero aprender de verdade — R$19,90/mês</a>
+  <p class="muted" style="margin-top:14px">Sem fidelidade. Cancela quando quiser.</p>
+</div>
+
+<hr class="div">
+
+<!-- DOR -->
+<div class="sec-sm" style="text-align:center">
+  <p style="font-size:13px;color:#3a5470;margin-bottom:24px;text-transform:uppercase;letter-spacing:1px">O que você já tentou e não funcionou</p>
+  <div class="grid3">
+    <div class="pain-card">
+      <div style="font-size:13px;color:#f09595;margin-bottom:6px">Duolingo</div>
+      <p style="font-size:13px;color:#5a7a99;line-height:1.6">Você aprende a traduzir frases sem sentido. Ninguém fala "o pato bebe água" na vida real.</p>
+    </div>
+    <div class="pain-card">
+      <div style="font-size:13px;color:#f09595;margin-bottom:6px">Cursos online</div>
+      <p style="font-size:13px;color:#5a7a99;line-height:1.6">Você assiste, assiste e assiste. Mas na hora de falar — trava. Porque nunca praticou de verdade.</p>
+    </div>
+    <div class="pain-card">
+      <div style="font-size:13px;color:#f09595;margin-bottom:6px">Professor particular</div>
+      <p style="font-size:13px;color:#5a7a99;line-height:1.6">R$80 a hora, horário fixo, e se você faltar, perde a grana. Inacessível pra maioria.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- VIRADA -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="label">A virada</div>
+    <h2 class="h2">E se você tivesse um professor<br>disponível a qualquer hora?</h2>
+  </div>
+  <div style="background:#040d18;border:0.5px solid #1e2e45;border-radius:16px;padding:36px;max-width:620px;margin:0 auto">
+    <p style="font-size:16px;color:#8ba3be;line-height:1.8;margin-bottom:20px">Minha filha de 12 anos vivia tentando aprender inglês com aplicativos. Ela desistia toda semana. Com o meuprof.ia, ela escolheu a IAnna como professora. Em duas semanas estava me corrigindo em inglês.</p>
+    <p style="font-size:14px;color:#3a5470">— pai de aluna, São Paulo</p>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- COMO FUNCIONA -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="label">Como funciona</div>
+    <h2 class="h2">Tão simples quanto mandar<br>uma mensagem</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;gap:20px;align-items:flex-start" class="card">
+      <div class="step-num">1</div>
+      <div>
+        <div class="h3" style="margin-bottom:6px">Você ativa seu acesso</div>
+        <p style="font-size:14px;color:#5a7a99;line-height:1.6">Compra, recebe o código no WhatsApp e ativa em 30 segundos. Sem cadastro complicado, sem app pra baixar.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:flex-start" class="card">
+      <div class="step-num">2</div>
+      <div>
+        <div class="h3" style="margin-bottom:6px">O professor te conhece</div>
+        <p style="font-size:14px;color:#5a7a99;line-height:1.6">Ele pergunta seu nome, sua idade e por que você quer aprender. A partir daí, tudo é personalizado pra você — os exemplos, o ritmo, a dificuldade.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:flex-start" class="card">
+      <div class="step-num">3</div>
+      <div>
+        <div class="h3" style="margin-bottom:6px">Você aprende todo dia</div>
+        <p style="font-size:14px;color:#5a7a99;line-height:1.6">Cada dia tem um tema diferente — vocabulário, gramática, produção, quiz. Seu professor lembra tudo que você já aprendeu e nunca repete o básico à toa.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:flex-start" class="card">
+      <div class="step-num">4</div>
+      <div>
+        <div class="h3" style="margin-bottom:6px">Você escolhe seu professor</div>
+        <p style="font-size:14px;color:#5a7a99;line-height:1.6">7 personalidades. Do professor direto que não enrola ao amigo que nunca te julga. Troca quando quiser, sem perder o progresso.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ANTES E DEPOIS -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="label">Transformação</div>
+    <h2 class="h2">Antes e depois do meuprof.ia</h2>
+  </div>
+  <div class="grid2">
+    <div>
+      <p style="font-size:12px;color:#f09595;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">Antes</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="pain-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Estudo faz meses e não consigo falar nada"</p></div>
+        <div class="pain-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Trava na hora de montar uma frase"</p></div>
+        <div class="pain-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Não tenho dinheiro pra professor particular"</p></div>
+        <div class="pain-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Desisto sempre depois de 2 semanas"</p></div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:12px;color:#1d9e75;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">Depois</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="transform-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Meu professor lembra dos meus erros e me corrige na hora"</p></div>
+        <div class="transform-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"Aprendo palavras em frases reais que vou usar"</p></div>
+        <div class="transform-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"R$19,90 no mês — menos que um lanche"</p></div>
+        <div class="transform-card" style="padding:14px"><p style="font-size:13px;color:#5a7a99">"É no WhatsApp — não tem como esquecer"</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- PROFESSORES — 7 cards (grid 2 colunas + 1 centralizado) -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="label">Professores</div>
+    <h2 class="h2">7 professores. Cada um do seu jeito.</h2>
+    <p class="sub" style="max-width:500px;margin:16px auto 0;font-size:16px">Escolhe o que combina com você. Troca quando quiser.</p>
+  </div>
+  <div class="grid2" style="margin-bottom:16px">
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAgo</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Grosso, direto, xinga levemente — mas ensina pra valer. Pra quem aguenta o tranco.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IArley</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">O palhaço que ensina sem você perceber. Humor que vira conteúdo.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAlex</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Zero enrolação. Direto ao ponto. Pra quem quer resultado rápido.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAmigo</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Seu brother de idiomas. Nunca te julga, sempre encoraja.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAnna</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Elegante, refinada, classe total. Corrige com delicadeza mas não deixa nada passar.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAdriano</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Coach motivacional raiz. Mistura idioma com lição de vida. Entusiasmado, positivo.</p></div>
+    </div>
+  </div>
+  <!-- IAxl centralizado -->
+  <div style="max-width:420px;margin:0 auto">
+    <div class="card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="avatar">IA</div>
+      <div><div class="h3" style="margin-bottom:4px;color:#378ADD">IAxl</div><p style="font-size:13px;color:#5a7a99;line-height:1.5">Nerd de cultura pop. Ensina com séries, games e animes.</p></div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- DEPOIMENTOS -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="label">Depoimentos</div>
+    <h2 class="h2">Quem já está estudando</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div class="card">
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:14px">
+        <div class="avatar">MF</div>
+        <div>
+          <p style="font-size:14px;font-weight:500;color:#c8d8e8">Mariana F.</p>
+          <p style="font-size:12px;color:#3a5470">São Paulo · estudante</p>
+        </div>
+        <div style="margin-left:auto"><span class="star">★★★★★</span></div>
+      </div>
+      <p style="font-size:14px;color:#7a9ab8;line-height:1.7">"Tentei 4 apps diferentes. Com o meuprof.ia foi a primeira vez que eu realmente senti que estava aprendendo. O IArley me fez gargalhar ensinando expressão idiomática."</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:14px">
+        <div class="avatar">RS</div>
+        <div>
+          <p style="font-size:14px;font-weight:500;color:#c8d8e8">Roberto S.</p>
+          <p style="font-size:12px;color:#3a5470">Rio de Janeiro · analista</p>
+        </div>
+        <div style="margin-left:auto"><span class="star">★★★★★</span></div>
+      </div>
+      <p style="font-size:14px;color:#7a9ab8;line-height:1.7">"R$19,90 por mês. Eu pagava R$120 por hora de professor particular e aprendia menos. O bot lembra dos meus erros de uma sessão pra outra. Isso é absurdo."</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:14px">
+        <div class="avatar">CL</div>
+        <div>
+          <p style="font-size:14px;font-weight:500;color:#c8d8e8">Camila L.</p>
+          <p style="font-size:12px;color:#3a5470">Belo Horizonte · mãe</p>
+        </div>
+        <div style="margin-left:auto"><span class="star">★★★★★</span></div>
+      </div>
+      <p style="font-size:14px;color:#7a9ab8;line-height:1.7">"Ativei pra minha filha de 11 anos. A IAnna adaptou a linguagem automaticamente. Ela estuda sozinha todo dia sem eu precisar pedir."</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- OFERTA -->
+<div class="sec" id="oferta">
+  <div style="text-align:center;margin-bottom:40px">
+    <div class="label">Oferta</div>
+    <h2 class="h2">Comece hoje. Cancela quando quiser.</h2>
+  </div>
+  <div class="price-box">
+    <div class="badge-red" style="margin-bottom:16px">Oferta de lançamento — vagas limitadas</div>
+    <p style="font-size:14px;color:#5a7a99;margin-bottom:8px">Acesso mensal ao meuprof.ia</p>
+    <div style="margin-bottom:4px"><span class="strike">De R$79,90</span></div>
+    <div style="margin-bottom:6px">
+      <span style="font-size:16px;color:#85B7EB;vertical-align:top;margin-top:10px;display:inline-block">R$</span>
+      <span style="font-size:56px;font-weight:500;color:#e8edf5;line-height:1">19</span>
+      <span style="font-size:28px;color:#85B7EB;vertical-align:bottom;margin-bottom:8px;display:inline-block">,90</span>
+    </div>
+    <p style="font-size:13px;color:#3a5470;margin-bottom:28px">por mês · sem fidelidade · cancela quando quiser</p>
+    <ul style="list-style:none;text-align:left;margin-bottom:28px">
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>10 idiomas disponíveis</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>7 professores com personalidades únicas</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>Pedagogia adaptada à sua idade</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>Professor que lembra seu histórico</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>Aulas diárias com temas variados</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;border-bottom:0.5px solid #1a2535;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>Revisão personalizada toda sexta-feira</li>
+      <li style="font-size:14px;color:#8ba3be;padding:9px 0;display:flex;align-items:center;gap:10px"><i class="ti ti-check" style="color:#378ADD"></i>Funciona 100% no WhatsApp</li>
+    </ul>
+    <a href="SEU_LINK_CAKTO_AQUI" class="btn-cta" style="display:block;text-align:center;width:100%;font-size:16px;padding:16px">Quero meu professor agora</a>
+    <p style="font-size:12px;color:#3a5470;margin-top:14px">Compra segura · Acesso imediato · Suporte via WhatsApp</p>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- BÔNUS -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:40px">
+    <div class="label">Bônus</div>
+    <h2 class="h2">Incluso sem custo extra</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="bonus-card">
+      <div class="bonus-icon"><i class="ti ti-calendar"></i></div>
+      <div>
+        <div class="h3" style="margin-bottom:4px">Plano de aulas diárias</div>
+        <p style="font-size:13px;color:#5a7a99;line-height:1.5">Cada dia da semana tem um tema diferente. Segunda é vocabulário, terça é gramática, sábado é expressão idiomática. Seu professor sabe disso e conduz automaticamente.</p>
+      </div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon"><i class="ti ti-refresh"></i></div>
+      <div>
+        <div class="h3" style="margin-bottom:4px">Revisão personalizada toda sexta</div>
+        <p style="font-size:13px;color:#5a7a99;line-height:1.5">Toda sexta o professor cria 5 exercícios baseados exatamente no que você aprendeu na semana — suas palavras, seus erros, suas dificuldades. Nada genérico.</p>
+      </div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon"><i class="ti ti-brain"></i></div>
+      <div>
+        <div class="h3" style="margin-bottom:4px">Memória de aprendizado permanente</div>
+        <p style="font-size:13px;color:#5a7a99;line-height:1.5">Seus erros, suas palavras aprendidas e suas dificuldades ficam salvos. Mesmo que você suma por 2 semanas, seu professor retoma de onde parou.</p>
+      </div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon"><i class="ti ti-arrows-exchange"></i></div>
+      <div>
+        <div class="h3" style="margin-bottom:4px">Troca de professor sem perder progresso</div>
+        <p style="font-size:13px;color:#5a7a99;line-height:1.5">Testou o IAgo e não curtiu? Troca pro IAmigo. Seu histórico de aprendizado vai junto — o novo professor continua de onde o outro parou.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- GARANTIA -->
+<div class="sec-sm" style="text-align:center">
+  <div class="guarantee-box">
+    <i class="ti ti-shield-check" style="font-size:40px;color:#1d9e75;margin-bottom:16px;display:block"></i>
+    <h3 class="h3" style="margin-bottom:12px">Se não gostar, a gente resolve</h3>
+    <p style="font-size:14px;color:#5a7a99;line-height:1.7">Teve algum problema? Fala com nosso suporte no WhatsApp. Sem burocracia, sem processo complicado. A gente está aqui pra garantir que você aprenda.</p>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- FAQ -->
+<div class="sec">
+  <div style="text-align:center;margin-bottom:40px">
+    <div class="label">Dúvidas</div>
+    <h2 class="h2">Antes que você pergunte</h2>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Precisa instalar algum aplicativo?</div>
+    <div class="faq-a">Não. Funciona 100% pelo WhatsApp que você já tem no celular.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Serve pra qualquer idade?</div>
+    <div class="faq-a">Sim. O professor adapta automaticamente a abordagem. Uma criança de 10 anos recebe uma aula completamente diferente de um adulto de 40.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">O professor lembra o que aprendi nas aulas anteriores?</div>
+    <div class="faq-a">Sim. Tudo fica salvo — seus erros, palavras aprendidas, dificuldades. É como ter um caderninho que o professor sempre consulta.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Posso trocar de idioma ou professor?</div>
+    <div class="faq-a">Pode. A qualquer momento. Você digita "trocar professor" e aparece o menu. Se quiser continuar de onde parou com o novo professor, o histórico vai junto.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Como funciona o pagamento?</div>
+    <div class="faq-a">Você paga R$19,90. Assim que o pagamento é confirmado, você recebe o código de ativação pelo WhatsApp e já começa.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Posso cancelar quando quiser?</div>
+    <div class="faq-a">Sim. Sem fidelidade, sem multa, sem ligação de retenção. Você cancela e pronto.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- CTA FINAL -->
+<div class="sec" style="text-align:center">
+  <h2 class="h2" style="margin-bottom:16px">Daqui a 30 dias, você pode<br>estar numa aula — ou no mesmo lugar.</h2>
+  <p class="sub" style="max-width:500px;margin:0 auto 36px;font-size:16px">A diferença entre quem aprende e quem não aprende não é talento. É consistência. E consistência começa com um passo.</p>
+  <a href="SEU_LINK_CAKTO_AQUI" class="btn-cta" style="font-size:17px;padding:18px 48px">Quero começar agora — R$19,90/mês</a>
+  <p class="muted" style="margin-top:14px">Acesso imediato · Sem fidelidade · Cancela quando quiser</p>
+</div>
+
+<!-- FOOTER -->
+<div style="background:#080e1a;border-top:0.5px solid #1a2535;padding:36px 24px;text-align:center;margin-top:60px">
+  <div style="font-size:18px;font-weight:500;color:#378ADD;margin-bottom:8px">meuprof.ia</div>
+  <p style="font-size:13px;color:#3a5470">Seu professor particular de idiomas com IA — direto no WhatsApp.</p>
+  <p style="font-size:12px;color:#1e2e45;margin-top:16px">© 2026 meuprof.ia · Todos os direitos reservados</p>
+</div>
+
+</div>
+</body>
+</html>
